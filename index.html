@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#170e2d" />
+    <meta name="description" content="Billetterie Reach For The Culture — événements, réservations et contrôle des accès." />
+    <title>RFTC Ticketing — La culture nous rassemble</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" data-page-link="events" aria-label="RFTC Ticketing, accueil">
+        <img class="brand-logo" src="rftc-logo.png" alt="Reach For The Culture" width="56" height="56" />
+        <span class="brand-caption">TICKETING</span>
+      </a>
+      <nav class="main-nav" id="app-nav" aria-label="Navigation principale"></nav>
+      <div class="header-actions">
+        <label class="role-picker"><span>Mode démo</span><select id="demo-role" aria-label="Choisir le profil de démonstration">
+          <option value="visitor">Visiteur</option>
+          <option value="client">Client</option>
+          <option value="admin">Admin RFTC</option>
+          <option value="organizer">Responsable événement</option>
+          <option value="agent">Agent de contrôle</option>
+          <option value="vendor">Vendeur / point de vente</option>
+        </select></label>
+        <button class="cart-button" id="open-cart" type="button" aria-label="Ouvrir le panier">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 9H6M10 21h.01M18 21h.01" /></svg>
+          <span>Panier</span><span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="demo-banner"><span class="demo-pulse"></span> PROTOTYPE INTERACTIF · Paiements, envois d’e-mails et contrôles serveur simulés</div>
+
+    <main>
+      <section class="app-page" id="page-events" data-page="events">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-glow hero-glow-one"></div><div class="hero-glow hero-glow-two"></div>
+          <div class="hero-content">
+            <div class="eyebrow"><span class="live-dot"></span> LA CULTURE, EN DIRECT</div>
+            <h1 id="hero-title">On se retrouve<br />là où <span>ça vibre.</span></h1>
+            <p>Des rencontres, des sons et des histoires qui nous rassemblent.<br class="desktop-break" /> Le prochain souvenir commence ici.</p>
+            <a class="primary-button" href="#evenements">Découvrir les événements <span aria-hidden="true">↗</span></a>
+            <div class="hero-note"><span class="note-stars">✳</span> Reach For The Culture · Douala, Cameroun</div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="hero-sticker">CULTURE<br />IN MOTION</div>
+            <div class="hero-disc"><img src="rftc-logo.png" alt="" width="168" height="168" /></div>
+            <div class="hero-spark spark-one">✳</div><div class="hero-spark spark-two">✦</div>
+            <div class="hero-date"><span>SAISON</span><strong>26/27</strong></div>
+          </div>
+          <div class="hero-bottom"><span>DE LA SCÈNE À LA COMMUNAUTÉ</span><span class="hero-bottom-line"></span><span>FAIS PARTIE DU MOUVEMENT</span></div>
+        </section>
+
+        <section class="events-section" id="evenements" aria-labelledby="events-title">
+          <div class="section-heading">
+            <div><div class="section-kicker">PROGRAMMATION D’EXEMPLE · À PERSONNALISER</div><h2 id="events-title">Les prochaines <span>vibrations.</span></h2></div>
+            <p>Choisis ton ambiance.<br />On s’occupe du reste.</p>
+          </div>
+          <div class="filters" id="event-filters" role="group" aria-label="Filtrer les événements"></div>
+          <div class="events-grid" id="events-grid"></div>
+          <div class="community-banner" id="apropos">
+            <div class="banner-mark"><img src="rftc-logo.png" alt="" width="66" height="66" /></div>
+            <div><div class="section-kicker">REACH FOR THE CULTURE</div><h3>Plus qu’un événement.<br /><span>Un mouvement.</span></h3></div>
+            <p>On crée des espaces où les cultures se rencontrent, les talents s’expriment et les communautés grandissent.</p>
+            <a href="#evenements" aria-label="Découvrir les événements">↗</a>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-page workspace-page" id="page-dashboard" data-page="dashboard" hidden>
+        <div class="workspace-heading"><div><div class="section-kicker">VUE D’ENSEMBLE</div><h1>Bonjour, <span id="dashboard-greeting">équipe RFTC</span>.</h1><p>Suivi des réservations, des entrées et des ventes.</p></div><button class="secondary-button" data-go="events-admin">Gérer les événements <span>↗</span></button></div>
+        <div class="stat-grid" id="dashboard-stats"></div>
+        <div class="dashboard-columns">
+          <section class="panel"><div class="panel-heading"><div><div class="section-kicker">ACTIVITÉ</div><h2>Dernières commandes</h2></div><button class="text-button" data-go="reports">Voir les rapports ↗</button></div><div id="recent-orders"></div></section>
+          <section class="panel"><div class="panel-heading"><div><div class="section-kicker">À VENIR</div><h2>Événements publiés</h2></div></div><div id="upcoming-events"></div></section>
+        </div>
+      </section>
+
+      <section class="app-page workspace-page" id="page-events-admin" data-page="events-admin" hidden>
+        <div class="workspace-heading"><div><div class="section-kicker">ADMINISTRATION · PROGRAMMATION</div><h1>Gestion des <span>événements.</span></h1><p>Crée, publie, duplique ou clôture ta billetterie.</p></div><button class="primary-button" id="new-event-button" type="button">Créer un événement <span>＋</span></button></div>
+        <div class="notice notice-info">Les événements, quotas et statuts de cette maquette sont enregistrés dans le navigateur. Les droits d’accès réels devront être appliqués par Django côté serveur.</div>
+        <div class="admin-event-list" id="admin-event-list"></div>
+      </section>
+
+      <section class="app-page workspace-page" id="page-scanner" data-page="scanner" hidden>
+        <div class="workspace-heading"><div><div class="section-kicker">CONTRÔLE DES ACCÈS</div><h1>Scanner les <span>billets.</span></h1><p>Un QR par place. Une entrée validée une seule fois.</p></div><span class="status-pill status-green"><i></i> Appareil prêt · mode démo</span></div>
+        <div class="scanner-layout">
+          <section class="panel scanner-panel">
+            <div class="scanner-frame"><div class="scan-corner corner-tl"></div><div class="scan-corner corner-tr"></div><div class="scan-corner corner-bl"></div><div class="scan-corner corner-br"></div><div class="scan-symbol">▦</div><span>Zone de lecture QR</span></div>
+            <div class="section-kicker">VALIDATION DE DÉMONSTRATION</div>
+            <form id="scan-form"><label for="scan-token">Jeton du billet</label><div class="inline-form"><input id="scan-token" name="token" autocomplete="off" placeholder="Saisir ou coller un jeton de billet" required /><button class="primary-button" type="submit">Valider</button></div></form>
+            <label class="offline-toggle"><input type="checkbox" id="scanner-offline" /><span>Simuler une perte de connexion</span></label>
+            <div class="scan-result" id="scan-result" aria-live="polite"><span class="result-icon">?</span><div><strong>En attente d’un billet</strong><p>Le mode hors ligne ne valide jamais une entrée.</p></div></div>
+          </section>
+          <section class="panel"><div class="section-kicker">REPÈRES DU CAHIER DES CHARGES</div><h2>Résultat du scan</h2><div class="scan-legend"><div class="legend-row"><span class="legend-color green"></span><div><strong>Vert · valide</strong><p>Entrée confirmée côté serveur.</p></div></div><div class="legend-row"><span class="legend-color orange"></span><div><strong>Orange · déjà utilisé</strong><p>Billet déjà scanné, aucune seconde entrée.</p></div></div><div class="legend-row"><span class="legend-color red"></span><div><strong>Rouge · invalide</strong><p>Jeton inconnu, annulé ou paiement non confirmé.</p></div></div><div class="legend-row"><span class="legend-color gray"></span><div><strong>Gris · hors ligne</strong><p>Validation impossible : réessayer une fois connecté.</p></div></div></div><div class="demo-token-list" id="demo-token-list"></div></section>
+        </div>
+      </section>
+
+      <section class="app-page workspace-page" id="page-pos" data-page="pos" hidden>
+        <div class="workspace-heading"><div><div class="section-kicker">VENTE SUR PLACE</div><h1>Point de <span>vente.</span></h1><p>Vente comptoir, reçu et billets distincts par place.</p></div><span class="status-pill status-purple">Vendeur démo</span></div>
+        <div class="pos-layout">
+          <section class="panel"><div class="section-kicker">NOUVELLE VENTE</div><h2>Billetterie comptoir</h2>
+            <form id="pos-form" class="form-grid">
+              <label class="field full">Événement<select id="pos-event" name="eventId" required></select></label>
+              <label class="field">Catégorie<select id="pos-type" name="typeId" required></select></label>
+              <label class="field">Quantité<input name="quantity" type="number" min="1" max="10" value="1" required /></label>
+              <label class="field">Mode de paiement<select name="payment" required><option value="cash">Espèces</option><option value="orange">Orange Money</option><option value="mtn">MTN MoMo</option></select></label>
+              <label class="field">Référence opérateur <input name="operatorRef" maxlength="32" placeholder="Optionnelle pour espèces" /></label>
+              <div class="pos-total full"><span>Total à encaisser</span><strong id="pos-total">— FCFA</strong></div>
+              <button class="primary-button full" type="submit">Confirmer la vente démo <span>↗</span></button>
+              <p class="form-note full">Aucun encaissement réel. Les ventes démo alimentent les rapports et les quotas de cet appareil.</p>
+            </form>
+          </section>
+          <section class="panel"><div class="section-kicker">VENTES DU POINT DE VENTE</div><h2>Journal récent</h2><div id="pos-sales"></div></section>
+        </div>
+      </section>
+
+      <section class="app-page workspace-page" id="page-reports" data-page="reports" hidden>
+        <div class="workspace-heading"><div><div class="section-kicker">RAPPORTS RFTC</div><h1>Les chiffres, <span>en clair.</span></h1><p>Ventes, entrées et encaissements par événement et moyen de paiement.</p></div><button class="secondary-button" id="export-report" type="button">Exporter le rapport <span>↓</span></button></div>
+        <div class="report-filters"><label>Événement<select id="report-event"></select></label><label>Vendeur<select id="report-vendor"></select></label><label>Paiement<select id="report-payment"><option value="all">Tous les moyens</option><option value="orange">Orange Money</option><option value="mtn">MTN MoMo</option><option value="cash">Espèces</option></select></label></div>
+        <div class="stat-grid" id="report-stats"></div>
+        <section class="panel report-panel"><div class="panel-heading"><div><div class="section-kicker">DÉTAIL DES VENTES</div><h2>Encaissements confirmés</h2></div><span class="report-range">Depuis le début · FCFA</span></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Événement</th><th>Catégorie</th><th>Billets</th><th>Vendeur</th><th>Paiement</th><th>Total</th></tr></thead><tbody id="report-rows"></tbody></table></div></section>
+      </section>
+
+      <section class="app-page workspace-page" id="page-my-tickets" data-page="my-tickets" hidden>
+        <div class="workspace-heading"><div><div class="section-kicker">ESPACE CLIENT</div><h1>Mes <span>billets.</span></h1><p>Tes réservations de démonstration sur cet appareil.</p></div></div>
+        <div id="my-tickets-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="brand footer-brand" href="#" data-page-link="events" aria-label="RFTC Ticketing, accueil"><img class="brand-logo" src="rftc-logo.png" alt="Reach For The Culture" width="46" height="46" /><span class="brand-caption">TICKETING</span></a><span>La culture nous rassemble. © 2026 RFTC</span><span class="footer-status"><i></i> Démo locale · FCFA (XAF)</span><button class="text-button reset-demo" id="reset-demo" type="button">Réinitialiser la démo</button></footer>
+
+    <div class="overlay" id="overlay" hidden></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Votre panier" aria-hidden="true"><div class="drawer-header"><div><div class="section-kicker">VOTRE SÉLECTION</div><h2>Mon panier <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="close-cart" type="button" aria-label="Fermer le panier">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer" id="cart-footer" hidden><div class="cart-total"><span>Total</span><strong id="cart-total">0 FCFA</strong></div><button class="primary-button checkout-button" id="checkout-button" type="button">Réserver mes billets <span>↗</span></button><p>Une réservation démo bloque les places pendant 15 minutes.</p></div></aside>
+
+    <section class="app-modal" id="ticket-choice-modal" role="dialog" aria-modal="true" aria-labelledby="ticket-choice-title" hidden><button class="icon-button modal-close" data-close-modal type="button" aria-label="Fermer">×</button><div class="section-kicker">CHOISIR SON BILLET</div><h2 id="ticket-choice-title">À toi de <span>vibrer.</span></h2><p class="modal-intro" id="choice-event-info"></p><form id="ticket-choice-form" class="form-grid"><label class="field full">Catégorie de billet<select id="choice-type" name="typeId" required></select></label><label class="field full">Nombre de places<input name="quantity" type="number" value="1" min="1" max="10" required /></label><div class="choice-availability full" id="choice-availability"></div><button class="primary-button full" type="submit">Ajouter au panier <span>＋</span></button></form></section>
+
+    <section class="app-modal checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" hidden><button class="icon-button modal-close" data-close-modal type="button" aria-label="Fermer">×</button><div class="section-kicker">RÉSERVATION TEMPORAIRE · 15 MIN</div><h2 id="checkout-title">Finaliser la <span>commande.</span></h2><p class="modal-intro">Choisis un opérateur de paiement. La demande est simulée : aucun débit réel ne sera effectué.</p><form id="checkout-form" class="form-grid"><label class="field">Nom du client<input name="name" autocomplete="name" maxlength="60" required placeholder="Ex. Aïcha M." /></label><label class="field">E-mail pour le billet<input name="email" type="email" autocomplete="email" maxlength="120" required placeholder="toi@exemple.com" /></label><label class="field full">Paiement<select name="payment" required><option value="orange">Orange Money</option><option value="mtn">MTN MoMo</option></select></label><label class="field full">Téléphone de paiement<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+237 6XX XXX XXX" /></label><div class="checkout-summary full" id="checkout-summary"></div><button class="primary-button full" type="submit">Créer une demande de paiement <span>↗</span></button></form><div class="payment-pending" id="payment-pending" hidden><div class="pending-indicator"></div><strong id="pending-reference"></strong><p>Commande en attente : les places sont réservées 15 minutes.</p><div class="demo-payment-actions"><button class="primary-button" id="simulate-payment-success" type="button">Simuler paiement confirmé</button><button class="secondary-button" id="simulate-payment-failure" type="button">Simuler un refus</button></div></div><p class="demo-disclaimer">Prototype : pas de transaction, d’appel opérateur ou d’e-mail réel.</p></section>
+
+    <section class="app-modal ticket-modal" id="ticket-modal" role="dialog" aria-modal="true" aria-labelledby="ticket-title" hidden><button class="icon-button modal-close" data-close-modal type="button" aria-label="Fermer">×</button><div class="ticket-success-mark">✓</div><div class="section-kicker" id="ticket-kicker">RÉSERVATION CONFIRMÉE · DÉMO</div><h2 id="ticket-title">C’est réservé,<br /><span id="ticket-name"></span> !</h2><p class="modal-intro" id="ticket-summary"></p><div class="issued-tickets" id="issued-tickets"></div><button class="primary-button checkout-button" id="print-tickets" type="button">Imprimer / enregistrer en PDF <span>↓</span></button><p class="demo-disclaimer">QR de démonstration : jeton opaque local, non valable à l’entrée réelle. Aucun e-mail n’a été envoyé.</p></section>
+
+    <section class="app-modal event-modal" id="event-modal" role="dialog" aria-modal="true" aria-labelledby="event-modal-title" hidden><button class="icon-button modal-close" data-close-modal type="button" aria-label="Fermer">×</button><div class="section-kicker">PROGRAMMATION</div><h2 id="event-modal-title">Créer un <span>événement.</span></h2><form id="event-form" class="form-grid"><input type="hidden" name="eventId" /><label class="field full">Nom de l’événement<input name="title" maxlength="80" required placeholder="Ex. RFTC Culture Night" /></label><label class="field">Type<select name="category"><option>Concert</option><option>Festival</option><option>Atelier</option><option>Culture</option></select></label><label class="field">Lieu<input name="city" maxlength="90" required placeholder="Douala · lieu" /></label><label class="field">Date et heure<input name="date" type="datetime-local" required /></label><label class="field">Catégorie de billet<select name="ticketName"><option>Standard</option><option>VIP</option><option>VIP Early Bird</option><option>Backstage</option><option>Gratuit</option></select></label><label class="field">Prix (FCFA)<input name="price" type="number" min="0" step="500" required value="5000" /></label><label class="field">Quota de places<input name="quota" type="number" min="1" required value="100" /></label><label class="field full">Description<textarea name="description" maxlength="180" rows="2" placeholder="Présente l’expérience en quelques mots."></textarea></label><button class="primary-button full" type="submit">Enregistrer l’événement <span>↗</span></button></form></section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
